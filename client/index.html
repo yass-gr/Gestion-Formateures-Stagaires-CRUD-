@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestionnaire des Stagaires / Formateurs</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=search"
+    />
+    <script
+      src="https://code.jquery.com/jquery-4.0.0.js"
+      integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U="
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="src/index.js"></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <button class="selected" id="selectStagaires">Stagaires</button>
+          <button id="selectFormateurs">Formateurs</button>
+        </div>
+      </header>
+
+      <section>
+        <h1>Stagaires</h1>
+        <div class="controls">
+          <div class="search">
+            <input type="search" placeholder="Trouver..." />
+            <span class="material-symbols-outlined"> search </span>
+          </div>
+          <button>Ajouter stagaire</button>
+        </div>
+        <table>
+          <thead>
+            <th>#</th>
+            <th>Nom Complet</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Date d'ajoute</th>
+            <th>Actions</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>0</td>
+              <td>Yassine Grairi</td>
+              <td>23</td>
+              <td>grairiyassine@gmail.com</td>
+              <td>2026/07/02, 22:00</td>
+              <td>edit delete</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

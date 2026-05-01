@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Google Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings: "GRAD" 0;
+}
+
+:root {
+  --theme-clr: black;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  margin-block: 15px;
+}
+
+header div {
+  width: clamp(200px, 40vw, 300px);
+  height: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.047);
+  position: relative;
+}
+
+header button {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  transition: 0.2s ease-in-out;
+  color: white;
+  cursor: pointer;
+}
+
+header div::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  background-color: var(--theme-clr);
+  height: 40px;
+  z-index: -1;
+  border-radius: 50px;
+  top: 0;
+  left: 0;
+  transition: 0.2s ease-in-out;
+}
+
+.selectFormateur::before {
+  transform: translateX(100%);
+}
+.blackTxt {
+  color: black;
+}
+
+section {
+  margin-top: 100px;
+  width: clamp(300px, 90vw, 1200px);
+}
+
+section h1 {
+  font-weight: 1000;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  margin-inline: 10px;
+}
+
+td,
+th {
+  text-align: left;
+}
+
+tr,
+thead {
+  height: 35px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.24);
+}
+
+.controls {
+  margin-top: 40px;
+  margin-inline: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+}
+
+.controls .search {
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 250px;
+}
+
+.controls input {
+  height: 100%;
+  width: 100%;
+  border-radius: 50px;
+  border: 1px solid rgba(128, 128, 128, 0.417);
+  padding-inline: 10px;
+  color: rgba(128, 128, 128, 0.464);
+}
+
+.search span {
+  position: absolute;
+  right: 0;
+  padding: 5px;
+  font-size: 1.3rem;
+  color: rgba(128, 128, 128, 0.568);
+}
