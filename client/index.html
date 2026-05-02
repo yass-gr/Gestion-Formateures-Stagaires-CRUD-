@@ -14,6 +14,7 @@
       href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css
 "
     />
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
 
     <script
       src="https://code.jquery.com/jquery-4.0.0.js"
@@ -22,7 +23,11 @@
     ></script>
     <script type="module" src="src/index.js"></script>
   </head>
+
   <body>
+    <div class="alert">
+      Failed to get data! <span class="mdi mdi-alert-circle-outline"></span>
+    </div>
     <main>
       <header>
         <div>
@@ -32,39 +37,22 @@
       </header>
 
       <section>
-        <h1>Stagaires</h1>
+        <h1 class="title">Stagaires</h1>
         <div class="controls">
           <div class="search">
-            <input type="search" placeholder="Trouver..." />
+            <input id="searchInput" type="search" placeholder="Trouver..." />
             <span class="material-symbols-outlined"> search </span>
           </div>
-          <button>
-            Ajouter stagaire <span class="mdi mdi-account-plus-outline"></span>
+          <button class="ajoute-btn">
+            AJouter stagaire <span class="mdi mdi-account-plus-outline"></span>
           </button>
         </div>
         <div class="table-container">
           <table>
-            <thead>
-              <th>#</th>
-              <th>Nom Complet</th>
-              <th>Age</th>
-              <th>Email</th>
-              <th>Date d'ajoute</th>
-              <th>Actions</th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>0</td>
-                <td>Yassine Grairi</td>
-                <td>23</td>
-                <td>grairiyassine@gmail.com</td>
-                <td>2026/07/02, 22:00</td>
-                <td>edit delete</td>
-              </tr>
-            </tbody>
+            <thead></thead>
+            <tbody></tbody>
           </table>
         </div>
-        <p class="btmTableInfo">list des stagaires</p>
       </section>
     </main>
   </body>

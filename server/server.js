@@ -8,9 +8,8 @@ app.listen(PORT, async () => {
   try {
     await db.getConnection();
     console.log("DB connected..");
-    console.log(`running ar ${PORT} ...`);
+    console.log(`running at port: ${PORT} ...`);
   } catch (err) {
     console.error(`DB connection failed!`, err);
-    process.exit(1);
   }
 });

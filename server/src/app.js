@@ -9,7 +9,11 @@ app.use(express.json());
 
 app.get("/stagaires", async (rq, rs) => {
   const [data] = await db.query("SELECT * FROM stagaires");
-  rs.send(data);
+  if (data.length === 0) {
+    rs.status(500).send({ error: "db error" });
+  } else {
+    rs.json(data);
+  }
 });
 app.get("/formateurs", async (rq, rs) => {
   const [data] = await db.query("SELECT * FROM formateurs");

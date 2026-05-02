@@ -16,6 +16,7 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 header {
@@ -32,6 +33,7 @@ header div {
   border-radius: 50px;
   background-color: rgba(0, 0, 0, 0.047);
   position: relative;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.093);
 }
 
 header button {
@@ -88,6 +90,9 @@ th {
   text-align: left;
 }
 
+tr:hover {
+  background-color: rgba(247, 241, 241, 0.309);
+}
 tr,
 thead {
   height: 35px;
@@ -100,6 +105,7 @@ thead {
   display: flex;
   justify-content: space-between;
   height: 40px;
+  gap: 10px;
 }
 
 .controls .search {
@@ -116,7 +122,7 @@ thead {
   border-radius: 50px;
   border: 1px solid rgba(128, 128, 128, 0.417);
   padding-inline: 10px;
-  color: rgba(135, 9, 9, 0.464);
+  color: rgb(98, 90, 90);
   font-size: 0.9rem;
 }
 .controls input:focus {
@@ -162,4 +168,78 @@ thead {
   text-align: center;
   margin-top: 15px;
   color: rgba(128, 128, 128, 0.889);
+}
+
+.actions {
+  display: flex;
+
+  align-items: center;
+}
+
+.actions button {
+  background: none;
+  outline: none;
+  border: none;
+  font-size: larger;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 5px;
+  border-radius: 50%;
+  width: 35px;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+  color: var(--theme-clr);
+}
+.actions button:hover {
+  background-color: rgba(175, 171, 171, 0.594);
+}
+.loaderContainer {
+  width: clamp(300px, 90vw, 1000px);
+  margin-block: 10px;
+  display: flex;
+  justify-content: center;
+}
+.loader {
+  margin-inline: auto;
+  width: 30px;
+  padding: 5px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #000000;
+  --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.hide {
+  display: none !important;
+}
+
+.alertErr {
+  position: fixed;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.173);
+  border-radius: 15px;
+  width: 300px;
+  height: 60px;
+  top: 70px;
+  padding-inline: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.03rem;
+  background-color: rgba(215, 10, 10, 0.131);
+}
+.alertErr span {
+  color: red !important;
+  font-size: larger;
 }
