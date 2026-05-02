@@ -6,9 +6,6 @@
   padding: 0;
   font-family: "Google Sans", sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-  font-variation-settings: "GRAD" 0;
 }
 
 :root {
@@ -71,18 +68,19 @@ header div::before {
 
 section {
   margin-top: 100px;
-  width: clamp(300px, 90vw, 1200px);
+  width: clamp(300px, 90vw, 1000px);
 }
 
 section h1 {
   font-weight: 1000;
+  color: var(--theme-clr);
+  transition: all 0.2s ease-in-out;
 }
 
 table {
-  width: 100%;
+  width: clamp(800px, 100%, 1200px);
   margin-top: 20px;
   border-collapse: collapse;
-  margin-inline: 10px;
 }
 
 td,
@@ -98,7 +96,6 @@ thead {
 
 .controls {
   margin-top: 40px;
-  margin-inline: 10px;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -119,13 +116,50 @@ thead {
   border-radius: 50px;
   border: 1px solid rgba(128, 128, 128, 0.417);
   padding-inline: 10px;
-  color: rgba(128, 128, 128, 0.464);
+  color: rgba(135, 9, 9, 0.464);
+  font-size: 0.9rem;
+}
+.controls input:focus {
+  outline: none;
+  border: 1px solid black;
+  box-shadow: 0 0 1px black;
 }
 
 .search span {
   position: absolute;
   right: 0;
-  padding: 5px;
+  margin-top: 4px;
+  padding: 10px;
   font-size: 1.3rem;
   color: rgba(128, 128, 128, 0.568);
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.controls button {
+  background: var(--theme-clr);
+  width: 13rem;
+  border-radius: 50px;
+  color: white;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.controls button span {
+  font-size: larger;
+}
+.btmTableInfo {
+  text-align: center;
+  margin-top: 15px;
+  color: rgba(128, 128, 128, 0.889);
 }
