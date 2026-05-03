@@ -70,7 +70,7 @@ header div::before {
 
 section {
   margin-top: 100px;
-  width: clamp(300px, 90vw, 1000px);
+  width: clamp(300px, 85vw, 1000px);
 }
 
 section h1 {

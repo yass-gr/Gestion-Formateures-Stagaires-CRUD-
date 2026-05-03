@@ -1,6 +1,16 @@
-const ajouteModal = $("<dialog/>");
-ajouteModal.html(`
+const afficherFormulaire = (isStagaires) => {
+  const specificFields = isStagaires
+    ? `
    
+    <input type="number" placeholder="Age" /><br />
+    <input type="text" placeholder="Filiere" /><br />
+    
+    `
+    : `
+    <input type="text" placeholder="Specialite" /><br />
+        
+    `;
+  const ajouteModal = $("<dialog/>").attr("id", "ajoute-modal").html(`
      <div id="ajoute-modal-div" >
       <button id="ajoute-close">
         <span class="mdi mdi-close"></span>
@@ -8,19 +18,15 @@ ajouteModal.html(`
       <form action="" id="ajoute-form">
         <input  type="text" placeholder="Nom" /><br />
         <input  type="text" placeholder="Prenom" /><br />
-        <input type="number" placeholder="Age" /><br />
-        <input type="text" placeholder="Filiere" /><br />
+        ${specificFields}
         <input type="Email" placeholder="Email" /><br />
         <button type="submit">Ajouter</button>
       </form>
       <div/>
     
     `);
-ajouteModal.attr("id", "ajoute-modal");
 
-$("body").append(ajouteModal);
-
-$(".ajoute-btn").on("click", () => {
+  $("body").append(ajouteModal);
   ajouteModal.animate(
     {
       height: "show",
@@ -32,20 +38,22 @@ $(".ajoute-btn").on("click", () => {
     },
   );
   $("body").css("overflow", "hidden");
-});
-$(document).on("click", "#ajoute-close", () => {
-  ajouteModal.animate(
-    {
-      height: "hide",
-      opacity: "hide",
-    },
-    100,
-    () => {
-      ajouteModal[0].close();
-    },
-  );
 
-  $("body").css("overflow", "");
-});
+  ajouteModal.on("click", "#ajoute-close", () => {
+    ajouteModal.animate(
+      {
+        height: "hide",
+        opacity: "hide",
+      },
+      100,
+      () => {
+        ajouteModal[0].close();
+        ajouteModal.remove();
+      },
+    );
 
-export default ajouteModal;
+    $("body").css("overflow", "");
+  });
+};
+
+export default afficherFormulaire;

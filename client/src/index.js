@@ -3,9 +3,10 @@ import { showSpinner, loader2 } from "./components/spinner.js";
 import getData from "./services/getdata.js";
 import "./components/searchInput.js";
 import { handleError } from "./utils/handleError.js";
-import "./components/ajouterBtn.js";
+import afficherFormulaire from "./components/ajouterBtn.js";
 import validerChamps from "./utils/validateData.js";
 import { ShowSuccessAlert } from "./components/alert.js";
+
 let isStagaires = true;
 const PORT = 3002;
 
@@ -34,7 +35,13 @@ const displayContent = async () => {
 //premier affichage
 displayContent();
 
+//ajouter stagaire/ formateur
+$(".ajoute-btn").on("click", () => {
+  afficherFormulaire(isStagaires);
+});
+
 $("#ajoute-form").on("submit", async (e) => {
+  console.log("gay");
   e.preventDefault();
   const data = {
     nom: $("#ajoute-form input:nth-child(1)").val(),
