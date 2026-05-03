@@ -239,9 +239,30 @@ thead {
   justify-content: space-between;
   font-size: 1.03rem;
   background-color: rgba(215, 10, 10, 0.131);
+  z-index: 100;
 }
 .alertErr span {
   color: red !important;
+  font-size: larger;
+}
+
+.alertSucc {
+  position: fixed;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.173);
+  border-radius: 15px;
+  width: 300px;
+  height: 60px;
+  top: 70px;
+  padding-inline: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.03rem;
+  background-color: rgba(10, 215, 68, 0.131);
+  z-index: 100;
+}
+.alertSucc span {
+  color: rgb(60, 226, 9) !important;
   font-size: larger;
 }
 
@@ -314,4 +335,10 @@ thead {
 
 #ajoute-close:hover {
   background-color: rgba(128, 128, 128, 0.411);
+}
+
+.formErr {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: red;
 }

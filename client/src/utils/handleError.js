@@ -1,4 +1,4 @@
-import { ShowErrorAlert } from "../views/alert.js";
+import { ShowErrorAlert } from "../components/alert.js";
 
 const handleError = (err) => {
   ShowErrorAlert("une Erreur s'est produite !");

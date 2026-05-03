@@ -6,9 +6,15 @@ const loader = () => {
   loaderContainer.append(loaderDiv);
   return loaderContainer;
 };
+const loader2 = () => {
+  const loaderDiv = $("<div/>");
+  loaderDiv.addClass("loader");
+
+  return loaderDiv;
+};
 
 const showSpinner = () => {
   $("tbody").html(loader());
 };
 
-export default showSpinner;
+export { showSpinner, loader2 };

@@ -6,8 +6,8 @@ ajouteModal.html(`
         <span class="mdi mdi-close"></span>
       </button>
       <form action="" id="ajoute-form">
-        <input type="text" placeholder="Nom" /><br />
-        <input type="text" placeholder="Prenom" /><br />
+        <input  type="text" placeholder="Nom" /><br />
+        <input  type="text" placeholder="Prenom" /><br />
         <input type="number" placeholder="Age" /><br />
         <input type="text" placeholder="Filiere" /><br />
         <input type="Email" placeholder="Email" /><br />
@@ -47,3 +47,5 @@ $(document).on("click", "#ajoute-close", () => {
 
   $("body").css("overflow", "");
 });
+
+export default ajouteModal;

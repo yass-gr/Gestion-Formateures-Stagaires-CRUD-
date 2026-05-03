@@ -21,4 +21,18 @@ app.get("/formateurs", async (rq, rs) => {
   rs.send(data);
 });
 
+app.post("/stagaires", async (rq, rs) => {
+  const body = rq.body;
+  try {
+    await db.query(
+      "INSERT INTO stagaires (nom, prenom, age, filiere, email) VALUES (?,?,?,?,?);",
+      [body.nom, body.prenom, body.age, body.filiere, body.email],
+    );
+    rs.status(200).json({ added: true });
+  } catch (err) {
+    rs.status(500).json({ error: err.error });
+    console.error(err);
+  }
+});
+
 export default app;
