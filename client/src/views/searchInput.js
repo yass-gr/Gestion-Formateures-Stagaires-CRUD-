@@ -1,4 +1,4 @@
-import checkIsStagaires from "../index.js";
+import { checkIsStagaires } from "../index.js";
 import { searchInputData } from "./display.js";
 
 $("#searchInput").on("input", (e) => {

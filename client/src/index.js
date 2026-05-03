@@ -3,8 +3,10 @@ import showSpinner from "./views/spinner.js";
 import getData from "./controllers/getdata.js";
 import "./views/searchInput.js";
 import { handleError } from "./controllers/handleError.js";
+import "./views/ajouterBtn.js";
 
 let isStagaires = true;
+const PORT = 3002;
 
 //select stagaires / formateurs buttons events
 $("#selectStagaires").on("click", () => {
@@ -33,4 +35,4 @@ displayContent();
 
 // check fonction  exporté pour searchInput.js
 const checkIsStagaires = () => isStagaires;
-export default checkIsStagaires;
+export { checkIsStagaires, PORT };

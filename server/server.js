@@ -2,7 +2,7 @@ import "dotenv/config";
 import app from "./src/app.js";
 import db from "./src/config/db.js";
 
-const PORT = 2002;
+const PORT = 3002;
 
 app.listen(PORT, async () => {
   try {

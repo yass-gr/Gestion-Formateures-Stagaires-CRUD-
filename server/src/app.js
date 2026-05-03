@@ -8,11 +8,12 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/stagaires", async (rq, rs) => {
-  const [data] = await db.query("SELECT * FROM stagaires");
-  if (data.length === 0) {
-    rs.status(500).send({ error: "db error" });
-  } else {
+  try {
+    const [data] = await db.query("SELECT * FROM stagaires");
     rs.json(data);
+  } catch (err) {
+    console.error("Failed to fetch stagaires!:", err);
+    rs.status(500).send({ error: "Internal server Error" });
   }
 });
 app.get("/formateurs", async (rq, rs) => {

@@ -83,6 +83,7 @@ table {
   width: clamp(800px, 100%, 1200px);
   margin-top: 20px;
   border-collapse: collapse;
+  margin-bottom: 80px;
 }
 
 td,
@@ -242,4 +243,75 @@ thead {
 .alertErr span {
   color: red !important;
   font-size: larger;
+}
+
+#ajoute-modal::backdrop {
+  background: transparent;
+  backdrop-filter: blur(3px);
+}
+
+#ajoute-modal-div {
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  width: 300px;
+  border: none;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.216);
+  border-radius: 30px;
+}
+
+#ajoute-modal-div input {
+  width: 100%;
+  height: 45px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.318);
+}
+#ajoute-modal-div input:focus {
+  border: 1px solid black;
+}
+#ajoute-modal-div form {
+  width: 100%;
+  text-align: center;
+}
+#ajoute-modal-div form button {
+  width: 100%;
+  height: 40px;
+  background-color: var(--theme-clr);
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border-radius: 50px;
+  margin-top: 20px;
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
+}
+
+#ajoute-modal-div form button:hover {
+  width: 70%;
+}
+
+#ajoute-close {
+  background: none;
+  border: none;
+  font-size: large;
+  align-self: flex-end;
+  aspect-ratio: 1;
+  border-radius: 50px;
+  transition: 0.1s ease-in-out;
+  margin-bottom: 10px;
+}
+
+#ajoute-close:hover {
+  background-color: rgba(128, 128, 128, 0.411);
 }
