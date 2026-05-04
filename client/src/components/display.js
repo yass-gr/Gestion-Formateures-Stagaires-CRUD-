@@ -30,12 +30,12 @@ const afficherTableStagaires = (data) => {
     const tr = $("<tr/>");
     tr.html(
       `
-    <td class="id"> ${s.id}  </td>
-    <td>${s.nom}  ${s.prenom} </td>
-    <td> ${s.age} </td>
-    <td> ${s.filiere} </td>
-    <td> ${s.email} </td>
-     <td> ${dayjs(s.date_ajoute).format("DD/MM/YY, HH:mm")} </td>
+    <td class="id">${s.id}</td>
+    <td>${s.nom} ${s.prenom}</td>
+    <td> ${s.age}</td>
+    <td>${s.filiere}</td>
+    <td>${s.email}</td>
+     <td>${dayjs(s.date_ajoute).format("DD/MM/YY, HH:mm")}</td>
     <td class="actions"> <button class="edit-btn"><span  class=" mdi mdi-pencil-outline"></span> </button>  <button class="del-item" ><span class="mdi mdi-trash-can-outline"></span> </button> </td>
     `,
     ).addClass(`${s.id}`);
@@ -75,11 +75,11 @@ const afficherTableFormateurs = (data) => {
     const tr = $("<tr/>");
     tr.html(
       `
-    <td> ${s.id}  </td>
-    <td>${s.nom}  ${s.prenom} </td>
-    <td> ${s.specialite} </td>
-    <td> ${s.email} </td>
-     <td> ${dayjs(s.date_ajoute).format("DD/MM/YY, HH:mm")} </td>
+    <td>${s.id}</td>
+    <td>${s.nom} ${s.prenom}</td>
+    <td>${s.specialite}</td>
+    <td>${s.email}</td>
+     <td>${dayjs(s.date_ajoute).format("DD/MM/YY, HH:mm")}</td>
     <td class="actions"> <button class="edit-btn"><span  class=" mdi mdi-pencil-outline"></span> </button><button class="del-item"><span class="mdi mdi-trash-can-outline"></span> </button> </td>
     `,
     ).addClass(`${s.id}`);

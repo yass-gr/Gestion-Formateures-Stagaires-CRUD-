@@ -10,6 +10,8 @@ import ajouter from "./services/POST.js";
 import { ShowSuccessAlert } from "./components/alert.js";
 import deleteItem from "./services/DELETE.js";
 import modifier from "./services/PUT.js";
+import Stagaire from "./classes/stagaire.js";
+import Formateur from "./classes/formateur.js";
 
 let isStagaires = true;
 const PORT = 3002;
@@ -59,7 +61,11 @@ $("body").on("submit", "#ajoute-form", async (e) => {
   $("#ajoute-modal > div").html(loader2());
   try {
     const PATH = isStagaires ? "stagaires" : "formateurs";
-    const ajoute = await ajouter(PORT, PATH, data);
+    const item = isStagaires
+      ? new Stagaire(data.nom, data.prenom, data.age, data.filiere, data.email)
+      : new Formateur(data.nom, data.prenom, data.specialite, data.email);
+    console.log("hi");
+    const ajoute = await ajouter(PORT, PATH, item);
     if (ajoute) {
       fermerForm();
       displayContent();

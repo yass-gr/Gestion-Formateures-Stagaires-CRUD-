@@ -1,6 +1,7 @@
 const deleteItem = async (PORT, PATH, id) => {
   const rs = await fetch(`http://localhost:${PORT}/${PATH}/${id}`, {
     method: "DELETE",
+    headers: { "Content-Type": "application/json" },
   });
 
   if (!rs.ok) {

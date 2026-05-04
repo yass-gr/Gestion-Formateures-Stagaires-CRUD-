@@ -1,10 +1,9 @@
 const afficherFormulaire = (isStagaires, id = false) => {
-  console.log(id);
   let data = {};
   if (id) {
     const item = $(`.${id}`);
     const nom = item.children(":nth-child(2)").text().split(" ")[0];
-    const prenom = item.children(":nth-child(2)").text().split(" ")[2];
+    const prenom = item.children(":nth-child(2)").text().split(" ")[1];
 
     if (isStagaires) {
       data = {
@@ -23,7 +22,7 @@ const afficherFormulaire = (isStagaires, id = false) => {
       };
     }
   }
-  console.log(data);
+
   //contenu de formulaire
   const specificFields = isStagaires
     ? `
@@ -41,12 +40,13 @@ const afficherFormulaire = (isStagaires, id = false) => {
       <button id="ajoute-close" type="button">
         <span class="mdi mdi-close"></span>
       </button>
+      <h2 id="form-title"> ${id ? "Modifier" : "Ajouter"} ${isStagaires ? "stagaire" : "formateur"}
       <form action="" id="${id ? "edit-form" : "ajoute-form"}">
         <input name="nom"  type="text" placeholder="Nom" value="${data.nom || ""}" /><br />
         <input name="prenom" type="text" placeholder="Prenom" value="${data.prenom || ""}"/><br />
         ${specificFields}
         <input name="email" type="Email" placeholder="email" value="${data.email || ""}" /><br />
-        <button type="submit">Ajouter</button>
+        <button type="submit">${id ? "Modifier" : "ajouter"}</button>
       </form>
       </div>
     

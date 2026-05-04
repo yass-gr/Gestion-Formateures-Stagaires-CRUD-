@@ -47,6 +47,9 @@ header button {
   color: white;
   cursor: pointer;
 }
+header button:hover {
+  background-color: rgba(43, 42, 42, 0.084);
+}
 
 header div::before {
   content: "";
@@ -161,6 +164,9 @@ thead {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
+.controls button:hover {
+  width: 14rem;
+}
 
 .controls button span {
   font-size: larger;
@@ -273,7 +279,7 @@ thead {
 
 #ajoute-modal-div {
   position: fixed;
-  top: 25%;
+  top: 20%;
   left: 50%;
   transform: translateY(-50%);
   transform: translateX(-50%);
@@ -304,6 +310,7 @@ thead {
 #ajoute-modal-div form {
   width: 100%;
   text-align: center;
+  margin-top: 20px;
 }
 #ajoute-modal-div form button {
   width: 100%;
@@ -341,4 +348,10 @@ thead {
   margin-top: 10px;
   font-size: 1rem;
   color: red;
+}
+
+.form-title {
+  text-align: center;
+  margin-block: 10px;
+  padding-bottom: 20px;
 }
