@@ -2,7 +2,7 @@ import { ShowErrorAlert } from "../components/alert.js";
 
 const handleError = (err) => {
   ShowErrorAlert("une Erreur s'est produite !");
-  console.error("Fetching data error:", err);
+  console.error("unexpected error:", err);
 };
 
 export { handleError };

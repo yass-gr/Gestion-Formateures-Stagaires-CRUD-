@@ -3,14 +3,12 @@ import { showSpinner, loader2 } from "./components/spinner.js";
 import getData from "./services/GET.js";
 import "./components/searchInput.js";
 import { handleError } from "./utils/handleError.js";
-import {
-  afficherFormulaire,
-  fermerFormSuccess,
-} from "./components/ajouterBtn.js";
+import { afficherFormulaire, fermerForm } from "./components/ajouterBtn.js";
 import validerChamps from "./utils/validateData.js";
 import recupererInput from "./utils/recupererInput.js";
 import ajouter from "./services/POST.js";
 import { ShowSuccessAlert } from "./components/alert.js";
+import deleteItem from "./services/DELETE.js";
 
 let isStagaires = true;
 const PORT = 3002;
@@ -30,7 +28,8 @@ const displayContent = async () => {
   let data;
   showSpinner();
   try {
-    data = await getData(isStagaires);
+    const PATH = isStagaires ? "stagaires" : "formateurs";
+    data = await getData(PORT, PATH);
   } catch (err) {
     handleError(err);
   }
@@ -59,16 +58,33 @@ $(".ajoute-btn").on("click", () => {
       const PATH = isStagaires ? "stagaires" : "formateurs";
       const ajoute = await ajouter(PORT, PATH, data);
       if (ajoute) {
-        fermerFormSuccess();
+        fermerForm();
         displayContent();
         ShowSuccessAlert("stagaire ajouté avec success");
       }
     } catch (err) {
-      console.error(err);
+      fermerForm();
+      handleError(err);
     }
   });
 });
 
+//supprimer stagaire
+$("table").on("click", ".del-item", async (e) => {
+  try {
+    const PATH = isStagaires ? "stagaires" : "formateurs";
+    const id = $(e.target).closest("tr").attr("class");
+    const del = await deleteItem(PORT, PATH, id);
+
+    if (del) {
+      ShowSuccessAlert("stagaire supprimé avec success");
+    }
+  } catch (err) {
+    handleError(err);
+  }
+  displayContent();
+});
+
 // check fonction  exporté pour searchInput.js
 const checkIsStagaires = () => isStagaires;
-export { checkIsStagaires, PORT };
+export { checkIsStagaires };

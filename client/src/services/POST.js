@@ -5,10 +5,9 @@ const ajouter = async (PORT, PATH, data) => {
     body: JSON.stringify(data),
   });
   const d = await rs.json();
-  console.log(PATH);
-  console.log(d);
+
   if (!rs.ok) {
-    throw new Error(d.error);
+    throw new Error(d.error.code);
   }
   return true;
 };

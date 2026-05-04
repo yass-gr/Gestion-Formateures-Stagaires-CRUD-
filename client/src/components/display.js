@@ -28,15 +28,17 @@ const afficherTableStagaires = (data) => {
   searchInputData.length = 0;
   data.forEach((s) => {
     const tr = $("<tr/>");
-    tr.html(`
-    <td> ${s.id}  </td>
+    tr.html(
+      `
+    <td class="id"> ${s.id}  </td>
     <td>${s.nom}  ${s.prenom} </td>
     <td> ${s.age} </td>
     <td> ${s.filiere} </td>
     <td> ${s.email} </td>
      <td> ${dayjs(s.date_ajoute).format("DD/MM/YY, HH:mm")} </td>
-    <td class="actions"> <button><span  class=" mdi mdi-pencil-outline"></span> </button><button><span class="mdi mdi-trash-can-outline"></span> </button> </td>
-    `);
+    <td class="actions"> <button><span  class=" mdi mdi-pencil-outline"></span> </button>  <button class="del-item" ><span class="mdi mdi-trash-can-outline"></span> </button> </td>
+    `,
+    ).addClass(`${s.id}`);
 
     tbody.append(tr);
 

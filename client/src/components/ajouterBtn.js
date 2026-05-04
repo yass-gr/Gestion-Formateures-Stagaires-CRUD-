@@ -59,7 +59,7 @@ const afficherFormulaire = (isStagaires) => {
   });
 };
 
-const fermerFormSuccess = () => {
+const fermerForm = () => {
   $("#ajoute-modal").animate(
     {
       height: "hide",
@@ -74,4 +74,4 @@ const fermerFormSuccess = () => {
   $("body").css("overflow", "");
 };
 
-export { afficherFormulaire, fermerFormSuccess };
+export { afficherFormulaire, fermerForm };
