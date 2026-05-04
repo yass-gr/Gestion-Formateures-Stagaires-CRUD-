@@ -1,32 +1,34 @@
 const afficherFormulaire = (isStagaires) => {
+  //contenu de formulaire
   const specificFields = isStagaires
     ? `
    
-    <input type="number" placeholder="Age" /><br />
-    <input type="text" placeholder="Filiere" /><br />
+    <input name="age" type="number" placeholder="Age" /><br />
+    <input name="filiere" type="text" placeholder="Filiere" /><br />
     
     `
     : `
-    <input type="text" placeholder="Specialite" /><br />
+    <input name="specialite" type="text" placeholder="Specialite" /><br />
         
     `;
   const ajouteModal = $("<dialog/>").attr("id", "ajoute-modal").html(`
      <div id="ajoute-modal-div" >
-      <button id="ajoute-close">
+      <button id="ajoute-close" type="button">
         <span class="mdi mdi-close"></span>
       </button>
       <form action="" id="ajoute-form">
-        <input  type="text" placeholder="Nom" /><br />
-        <input  type="text" placeholder="Prenom" /><br />
+        <input name="nom"  type="text" placeholder="Nom" /><br />
+        <input name="prenom" type="text" placeholder="Prenom" /><br />
         ${specificFields}
-        <input type="Email" placeholder="Email" /><br />
+        <input name="email" type="Email" placeholder="email" /><br />
         <button type="submit">Ajouter</button>
       </form>
-      <div/>
+      </div>
     
     `);
 
   $("body").append(ajouteModal);
+
   ajouteModal.animate(
     {
       height: "show",
@@ -39,6 +41,7 @@ const afficherFormulaire = (isStagaires) => {
   );
   $("body").css("overflow", "hidden");
 
+  //fermer le formulaire
   ajouteModal.on("click", "#ajoute-close", () => {
     ajouteModal.animate(
       {
@@ -56,4 +59,19 @@ const afficherFormulaire = (isStagaires) => {
   });
 };
 
-export default afficherFormulaire;
+const fermerFormSuccess = () => {
+  $("#ajoute-modal").animate(
+    {
+      height: "hide",
+      opacity: "hide",
+    },
+    100,
+    () => {
+      $("#ajoute-modal")[0].close();
+    },
+  );
+
+  $("body").css("overflow", "");
+};
+
+export { afficherFormulaire, fermerFormSuccess };

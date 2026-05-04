@@ -13,12 +13,17 @@ app.get("/stagaires", async (rq, rs) => {
     rs.json(data);
   } catch (err) {
     console.error("Failed to fetch stagaires!:", err);
-    rs.status(500).send({ error: "Internal server Error" });
+    rs.status(500).send({ error: err });
   }
 });
 app.get("/formateurs", async (rq, rs) => {
-  const [data] = await db.query("SELECT * FROM formateurs");
-  rs.send(data);
+  try {
+    const [data] = await db.query("SELECT * FROM formateurs");
+    rs.send(data);
+  } catch (err) {
+    console.error("Failed to fetch formateures!:", err);
+    rs.status(500).send({ error: err });
+  }
 });
 
 app.post("/stagaires", async (rq, rs) => {
@@ -30,7 +35,21 @@ app.post("/stagaires", async (rq, rs) => {
     );
     rs.status(200).json({ added: true });
   } catch (err) {
-    rs.status(500).json({ error: err.error });
+    rs.status(500).json({ error: err });
+    console.error(err);
+  }
+});
+
+app.post("/formateurs", async (rq, rs) => {
+  const body = rq.body;
+  try {
+    await db.query(
+      "INSERT INTO formateurs (nom, prenom, specialite, email) VALUES (?,?,?,?);",
+      [body.nom, body.prenom, body.specialite, body.email],
+    );
+    rs.status(200).json({ added: true });
+  } catch (err) {
+    rs.status(500).json({ error: err });
     console.error(err);
   }
 });
