@@ -74,5 +74,33 @@ app.delete("/formeteurs/:id", async (rq, rs) => {
     console.error(err);
   }
 });
+app.put("/stagaires/:id", async (rq, rs) => {
+  const id = rq.params.id;
+  const data = rq.body;
+  try {
+    await db.query(
+      ` UPDATE stagaires SET nom = ? ,  prenom = ?, age = ?, filiere = ?, email = ? WHERE id =  ${id};`,
+      [data.nom, data.prenom, data.age, data.filiere, data.email],
+    );
+    rs.status(200).json({});
+  } catch (err) {
+    rs.status(500).json({ error: err });
+    console.error(err);
+  }
+});
+app.put("/formateurs/:id", async (rq, rs) => {
+  const id = rq.params.id;
+  const data = rq.body;
+  try {
+    await db.query(
+      ` UPDATE formateurs SET nom = ? ,  prenom = ?,  specialite = ?, email = ? WHERE id =  ${id};`,
+      [data.nom, data.prenom, data.specialite, data.email],
+    );
+    rs.status(200).json({});
+  } catch (err) {
+    rs.status(500).json({ error: err });
+    console.error(err);
+  }
+});
 
 export default app;

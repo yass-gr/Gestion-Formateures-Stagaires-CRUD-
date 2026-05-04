@@ -14,18 +14,18 @@ const validerChamps = (data, isStagaires) => {
     isStagaires && {
       nom: "Age",
       val: data.age,
-      rules: { age: true },
+      rules: { age: true, required: true },
     },
 
     {
       nom: "Email",
       val: data.email,
-      rules: { max: 100 },
+      rules: { max: 100, required: true },
     },
     {
       nom: isStagaires ? "Filiere" : "Specialite",
       val: isStagaires ? data.filiere : data.specialite,
-      rules: { max: 30 },
+      rules: { max: 30, required: true },
     },
   ];
 
