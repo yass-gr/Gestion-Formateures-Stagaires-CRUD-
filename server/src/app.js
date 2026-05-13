@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use(stagairesRouter);
-app.use(formateursRouter);
+app.use("/stagaires", stagairesRouter);
+app.use("/formateurs", formateursRouter);
 
 export default app;

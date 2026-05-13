@@ -1,8 +1,8 @@
 import "dotenv/config";
 import app from "./src/app.js";
-import db from "./src/config/db.js";
+import db from "./src/models/db.js";
 
-const PORT = 3002;
+const PORT = process.env.PORT;
 
 app.listen(PORT, async () => {
   try {
